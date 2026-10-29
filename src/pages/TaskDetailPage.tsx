@@ -34,7 +34,7 @@ import { User, Project, Task, Comment, ActivityLog, Subtask, TaskAttachment, Com
 import ConfirmDeleteModal from '../components/ConfirmDeleteModal';
 import { generateTaskCode } from '../utils/codeGenerator';
 import { formatDate } from '../utils/dateFormat';
-import { getWorkloadInfo } from '../utils/taskUtils';
+import { getActiveTasksForUser, getProjectedActiveTaskCount, getWorkloadInfo } from '../utils/taskUtils';
 import { formatLogDateTime } from '../utils/activityLogger';
 
 interface TaskDetailPageProps {
@@ -239,25 +239,22 @@ export default function TaskDetailPage({
     setCurrentPage(targetPage);
   };
 
-  // Helper to compute active task count for a user
-  const getUserActiveTaskCount = (userId: string) => {
-    return tasks.filter(t => {
-      if (task && t.id === task.id) return false; // Exclude current task when updating
-      const isAssigned = t.assigneeIds ? t.assigneeIds.includes(userId) : t.assigneeId === userId;
-      return isAssigned && t.status !== 'done' && t.status !== 'canceled_on_hold';
-    }).length;
-  };
+  // Badges show persisted workload, matching the dashboard and sidebar in every mode.
+  const getUserActiveTaskCount = (userId: string) => getActiveTasksForUser(tasks, userId).length;
 
   // Check overload warnings for selected assignees
   const overloadedUsers = selectedAssigneeIds
     .map(uid => {
       const u = users.find(usr => usr.id === uid);
       if (!u) return null;
-      const currentActive = getUserActiveTaskCount(uid);
-      // In create mode or adding task, add 1 for preview
-      const projectedActive = (isCreateMode || (task && !task.assigneeIds?.includes(uid)))
-        ? currentActive + 1 
-        : currentActive;
+      const projectedActive = isEditing
+        ? getProjectedActiveTaskCount(tasks, uid, {
+            id: isCreateMode ? undefined : task?.id,
+            status,
+            assigneeId: selectedAssigneeIds[0] || '',
+            assigneeIds: selectedAssigneeIds,
+          })
+        : getUserActiveTaskCount(uid);
       if (projectedActive > u.overloadLimit) {
         return { user: u, current: projectedActive, limit: u.overloadLimit };
       }
@@ -1670,12 +1667,12 @@ export default function TaskDetailPage({
                 </div>
               )}
 
-              {/* OVERLOAD WARNING (Single-line compact when overloaded; Safe capacity box completely removed) */}
+              {/* Keep the projected count readable, including for multiple assignees. */}
               {overloadedUsers.length > 0 && (
                 <div className="p-2 bg-red-50 border border-red-200 rounded-lg flex items-center gap-1.5 text-[10px] text-red-700 font-medium">
                   <AlertTriangle className="h-3.5 w-3.5 text-red-600 shrink-0" />
-                  <span className="truncate">
-                    <strong>Overload:</strong> {overloadedUsers.map(o => `${o.user.name} (${o.current}/${o.limit})`).join(', ')}
+                  <span className="min-w-0 break-words">
+                    <strong>{isEditing ? 'Perkiraan overload setelah disimpan:' : 'Overload:'}</strong> {overloadedUsers.map(o => `${o.user.name} (${o.current}/${o.limit})`).join(', ')}
                   </span>
                 </div>
               )}

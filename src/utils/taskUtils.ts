@@ -17,6 +17,20 @@ export const getActiveTasksForUser = (tasks: Task[], userId: string): Task[] => 
   );
 };
 
+/** Count after saving a draft: replace the persisted task, never count it twice. */
+export const getProjectedActiveTaskCount = (
+  tasks: Task[],
+  userId: string,
+  draft: Pick<Task, 'status' | 'assigneeId' | 'assigneeIds'> & Partial<Pick<Task, 'id'>>
+): number => {
+  const otherActive = getActiveTasksForUser(tasks, userId).filter(t => t.id !== draft.id).length;
+  const isAssigned = draft.assigneeIds && draft.assigneeIds.length > 0
+    ? draft.assigneeIds.includes(userId)
+    : draft.assigneeId === userId;
+  const isActive = draft.status !== 'done' && draft.status !== 'canceled_on_hold';
+  return otherActive + (isAssigned && isActive ? 1 : 0);
+};
+
 export type WorkloadState = 'safe' | 'full' | 'overloaded';
 
 export interface WorkloadInfo {
