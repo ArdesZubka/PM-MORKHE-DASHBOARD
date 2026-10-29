@@ -1,6 +1,6 @@
 # Public access for Morkhē Studio
 
-GitHub Pages address: https://ardeszubka.github.io/PM-MOKHE-DASHBOARD/
+GitHub Pages address: https://ardeszubka.github.io/PM-MORKHE-DASHBOARD/
 
 This publishes the same browser application and dummy accounts from `main`.
 The Pages workflow builds only static browser assets, with the repository path

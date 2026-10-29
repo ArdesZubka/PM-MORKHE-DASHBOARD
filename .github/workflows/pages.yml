@@ -1,4 +1,4 @@
-name: Publish Morkhe Studio to GitHub Pages
+name: Publish MORKHĒ Studio to GitHub Pages
 
 on:
   push:
