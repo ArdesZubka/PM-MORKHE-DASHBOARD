@@ -2,6 +2,9 @@
 
 GitHub Pages address: https://ardeszubka.github.io/PM-MORKHE-DASHBOARD/
 
+Cloudflare address after the Worker rename:
+https://pm-morkhe-dashboard.ardeszubkaputra.workers.dev/
+
 This publishes the same browser application and dummy accounts from `main`.
 The Pages workflow builds only static browser assets, with the repository path
 as Vite's base. The existing Cloudflare build keeps its default root base.
