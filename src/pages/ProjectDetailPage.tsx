@@ -91,7 +91,9 @@ export default function ProjectDetailPage({
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
   // Project Comments state
-  const projectComments = comments.filter(c => c.projectId === project.id);
+  const projectComments = comments
+    .filter(c => c.projectId === project.id)
+    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
   const [newCommentText, setNewCommentText] = useState('');
   const [pendingCommentAttachments, setPendingCommentAttachments] = useState<CommentAttachment[]>([]);
   const [showCommentAttachMenu, setShowCommentAttachMenu] = useState(false);
@@ -102,6 +104,7 @@ export default function ProjectDetailPage({
   const [editingCommentText, setEditingCommentText] = useState('');
   const commentInputRef = React.useRef<HTMLInputElement>(null);
   const commentFileInputRef = React.useRef<HTMLInputElement>(null);
+  const commentFeedRef = React.useRef<HTMLDivElement>(null);
 
   // Sync state when project changes
   useEffect(() => {
@@ -353,6 +356,7 @@ export default function ProjectDetailPage({
     if (!newCommentText.trim() && pendingCommentAttachments.length === 0) return;
     if (onAddComment) {
       onAddComment(project.id, newCommentText.trim(), pendingCommentAttachments, true);
+      if (commentFeedRef.current) commentFeedRef.current.scrollTop = 0;
     }
     setNewCommentText('');
     setPendingCommentAttachments([]);
@@ -760,7 +764,7 @@ export default function ProjectDetailPage({
               </div>
 
               {/* Comments Feed */}
-              <div className="space-y-3 max-h-80 overflow-y-auto pr-1">
+              <div ref={commentFeedRef} className="space-y-3 max-h-80 overflow-y-auto [overflow-anchor:none] pr-1">
                 {projectComments.length === 0 ? (
                   <p className="text-xs text-gray-400 italic py-2">Belum ada komentar untuk proyek ini.</p>
                 ) : (
