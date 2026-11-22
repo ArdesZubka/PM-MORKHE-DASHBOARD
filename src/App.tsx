@@ -1018,7 +1018,7 @@ export default function App() {
             <header className="h-14 border-b border-gray-200 bg-morkhe-white px-6 flex items-center justify-between shrink-0 select-none">
               <div className="text-xs font-bold text-morkhe-black uppercase tracking-wider">
                 {currentPage === 'P04' || currentPage === 'P05' ? 'Dasbor' :
-                 currentPage === 'P06' ? 'Proyek' :
+                 currentPage === 'P06' || currentPage === 'P19' ? 'Proyek' :
                  ['P07', 'P08', 'P09', 'P10', 'P11', 'P15', 'P16', 'P20'].includes(currentPage) ? 'Ruang Kerja' :
                  currentPage === 'P13' ? 'Pusat Notifikasi' :
                  currentPage === 'P14' ? 'Pengingat Tugas' :

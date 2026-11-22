@@ -428,43 +428,7 @@ export default function ProjectDetailPage({
         </div>
       </div>
 
-      {/* 2. HIGHLIGHTED BLOCK "BUKA RUANG KERJA" (ALWAYS AT TOP) */}
-      <div className="bg-[#EEEDFE] border-2 border-[#4949E9] rounded-2xl p-6 shadow-xs space-y-4">
-        <div className="flex items-start gap-3.5">
-          <div className="w-10 h-10 rounded-full bg-[#4949E9] text-white flex items-center justify-center shrink-0 shadow-sm">
-            <Briefcase className="h-5 w-5" />
-          </div>
-          <div>
-            <h2 className="text-base font-bold text-gray-950 tracking-tight">
-              Ruang Kerja
-            </h2>
-            <p className="text-xs text-gray-600 mt-0.5">
-              Kelola tugas dan progres tim di Kanban Board
-            </p>
-          </div>
-        </div>
-
-        <div>
-          <button
-            onClick={() => {
-              const url = new URL(window.location.href);
-              url.searchParams.set('project_id', project.id);
-              window.history.pushState({}, '', url);
-              if (currentUser.role === 'PM') {
-                setCurrentPage('P07');
-              } else {
-                setCurrentPage('P08');
-              }
-            }}
-            className="px-5 py-2.5 bg-[#4949E9] hover:bg-[#3b3be0] text-white rounded-full text-xs font-bold flex items-center gap-2 transition-all cursor-pointer shadow-sm active:scale-[0.98]"
-          >
-            <Briefcase className="h-4 w-4" />
-            <span>Buka Ruang Kerja</span>
-          </button>
-        </div>
-      </div>
-
-      {/* 3. DETAIL PROYEK CARD */}
+      {/* Detail proyek */}
       <div className="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 space-y-6 shadow-2xs">
         
         {!isEditing ? (
@@ -485,11 +449,7 @@ export default function ProjectDetailPage({
                 <h1 className="text-xl md:text-2xl font-bold text-gray-950">
                   {project.name}
                 </h1>
-              </div>
-
-              {/* Status Badge */}
-              <div className="shrink-0">
-                <span className={`text-xs font-bold px-3 py-1 rounded-full uppercase border ${
+                <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full uppercase border ${
                   project.status === 'Completed' ? 'bg-green-50 text-green-700 border-green-200' :
                   project.status === 'Review' ? 'bg-amber-50 text-amber-700 border-amber-200' :
                   project.status === 'Ongoing' ? 'bg-purple-50 text-purple-700 border-purple-200' :
@@ -498,6 +458,19 @@ export default function ProjectDetailPage({
                   {project.status === 'Completed' ? 'Selesai' : project.status === 'Review' ? 'Review' : project.status === 'Ongoing' ? 'Berjalan' : 'Planning'}
                 </span>
               </div>
+              <button
+                type="button"
+                onClick={() => {
+                  const url = new URL(window.location.href);
+                  url.searchParams.set('project_id', project.id);
+                  window.history.pushState({}, '', url);
+                  setCurrentPage(currentUser.role === 'PM' ? 'P07' : 'P08');
+                }}
+                className="self-start sm:self-center shrink-0 px-5 py-2.5 bg-[#4949E9] hover:bg-[#3b3be0] text-white rounded-full text-xs font-bold flex items-center gap-2 transition-all cursor-pointer shadow-sm active:scale-[0.98]"
+              >
+                <Briefcase className="h-4 w-4" />
+                <span>Buka Ruang Kerja</span>
+              </button>
             </div>
 
             {/* Metadata Grid & Progress */}
@@ -1434,7 +1407,7 @@ export default function ProjectDetailPage({
                   <button
                     type="button"
                     onClick={() => setIsEditing(true)}
-                    className="px-5 py-2 bg-morkhe-purple hover:opacity-90 text-white rounded-full text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer shadow-sm active:scale-[0.98]"
+                    className="px-5 py-2 border border-morkhe-purple bg-white hover:bg-purple-50 text-morkhe-purple rounded-full text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer active:scale-[0.98]"
                   >
                     <Edit2 className="h-3.5 w-3.5" />
                     <span>Edit Detail Proyek</span>
