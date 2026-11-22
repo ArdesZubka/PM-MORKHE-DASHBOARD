@@ -6,7 +6,7 @@
 import React, { useState } from 'react';
 import { 
   Bell, 
-  Settings as GearIcon, 
+  AlarmClock,
   Trash2, 
   CheckCheck, 
   CheckCircle, 
@@ -186,7 +186,7 @@ export default function NotificationPopover({
                     className="p-1.5 hover:bg-gray-100 rounded-lg text-gray-500 hover:text-gray-900 transition-all cursor-pointer"
                     title="Pengaturan Notifikasi"
                   >
-                    <GearIcon className="h-4 w-4" />
+                    <AlarmClock className="h-4 w-4" />
                   </button>
                 </div>
               </>
