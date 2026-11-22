@@ -116,6 +116,7 @@ export default function TaskDetailPage({
   const [commentLinkUrl, setCommentLinkUrl] = useState<string>('');
   const [commentLinkText, setCommentLinkText] = useState<string>('');
   const commentFileInputRef = React.useRef<HTMLInputElement>(null);
+  const commentFeedRef = React.useRef<HTMLDivElement>(null);
 
   // Delete modal confirmation
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState<boolean>(false);
@@ -506,6 +507,7 @@ export default function TaskDetailPage({
   const handlePostComment = () => {
     if ((!newCommentText.trim() && pendingCommentAttachments.length === 0) || !task) return;
     onAddComment(task.id, newCommentText.trim(), pendingCommentAttachments);
+    if (commentFeedRef.current) commentFeedRef.current.scrollTop = 0;
     setNewCommentText('');
     setPendingCommentAttachments([]);
     setShowCommentAttachMenu(false);
@@ -1086,12 +1088,12 @@ export default function TaskDetailPage({
                 ) : (
                   <>
                     {/* Comments Feed */}
-                    <div className="space-y-3 max-h-80 overflow-y-auto pr-1">
+                    <div ref={commentFeedRef} className="space-y-3 max-h-80 overflow-y-auto [overflow-anchor:none] pr-1">
                       {comments.length === 0 ? (
                         <p className="text-xs text-gray-400 italic py-2">Belum ada komentar untuk tugas ini.</p>
                       ) : (
                         [...comments]
-                          .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime())
+                          .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
                           .map((cmt) => {
                             const isMyComment = (cmt.authorId && cmt.authorId === currentUser.id) || (cmt.authorName && cmt.authorName === currentUser.name);
                             const authorUser = users.find(u => 
@@ -1417,7 +1419,7 @@ export default function TaskDetailPage({
                     ) : (
                       <div className="space-y-2 max-h-80 overflow-y-auto pr-1">
                         {[...activityLogs]
-                          .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime())
+                          .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
                           .map((log) => (
                             <div 
                               key={log.id} 
