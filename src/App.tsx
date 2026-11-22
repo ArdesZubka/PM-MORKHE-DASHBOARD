@@ -15,7 +15,7 @@ import {
   DEFAULT_NOTIFICATION_SETTINGS
 } from './data/dummy';
 import { User, Project, Task, Comment, ActivityLog, Notification, NotificationSettings, CommentAttachment } from './types';
-import { ChevronDown, User as UserIcon, AtSign, X, ArrowRight, Bell, RotateCcw, CheckCircle, LogOut } from 'lucide-react';
+import { ChevronDown, User as UserIcon, AtSign, X, ArrowRight, AlarmClock, RotateCcw, CheckCircle, LogOut } from 'lucide-react';
 import { formatDate } from './utils/dateFormat';
 
 // Component imports
@@ -1020,7 +1020,8 @@ export default function App() {
                 {currentPage === 'P04' || currentPage === 'P05' ? 'Dasbor' :
                  currentPage === 'P06' ? 'Proyek' :
                  ['P07', 'P08', 'P09', 'P10', 'P11', 'P15', 'P16', 'P20'].includes(currentPage) ? 'Ruang Kerja' :
-                 currentPage === 'P13' || currentPage === 'P14' ? 'Pusat Notifikasi' :
+                 currentPage === 'P13' ? 'Pusat Notifikasi' :
+                 currentPage === 'P14' ? 'Pengingat Tugas' :
                  currentPage === 'P18' ? 'Pengaturan Akun' : 'Ruang Kerja'}
               </div>
               <div className="flex items-center gap-3">
@@ -1113,8 +1114,8 @@ export default function App() {
                             }}
                             className="w-full flex items-center gap-2 px-2.5 py-1.5 text-xs text-gray-300 hover:text-morkhe-white hover:bg-gray-800 rounded-lg transition-all cursor-pointer font-medium text-left"
                           >
-                            <Bell className="h-4 w-4 text-gray-400" />
-                            <span>Pengaturan notifikasi</span>
+                            <AlarmClock className="h-4 w-4 text-gray-400" aria-hidden="true" />
+                            <span>Pengingat Tugas</span>
                           </button>
                         </div>
 

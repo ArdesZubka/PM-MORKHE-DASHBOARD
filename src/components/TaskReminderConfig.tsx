@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { Plus, X, AlarmClock } from 'lucide-react';
+import { Plus, X } from 'lucide-react';
 import { TaskReminderRule } from '../types';
 
 interface TaskReminderConfigProps {
@@ -59,17 +59,9 @@ export default function TaskReminderConfig({
 
   return (
     <div className={`rounded-2xl border border-gray-200 bg-white ${compact ? 'p-3.5 space-y-3' : 'p-5 md:p-6 space-y-4'} shadow-2xs`}>
-      <div>
-        {!compact && (
-          <h3 className="text-sm font-bold text-gray-900 flex items-center gap-2">
-            <AlarmClock className="h-4 w-4 text-gray-700" aria-hidden="true" />
-            Pengingat tugas
-          </h3>
-        )}
-        <p className="text-[11px] text-gray-500 mt-0.5">
-          Atur kapan Anda ingin diingatkan sebelum tenggat tugas.
-        </p>
-      </div>
+      <p className="text-[11px] text-gray-500">
+        Atur kapan Anda ingin diingatkan sebelum atau pada hari tenggat tugas.
+      </p>
 
       {/* List of active reminder rules */}
       <div className="space-y-2.5">

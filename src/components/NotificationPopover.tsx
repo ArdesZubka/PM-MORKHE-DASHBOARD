@@ -187,7 +187,7 @@ export default function NotificationPopover({
                     className="inline-flex items-center gap-1.5 whitespace-nowrap px-2.5 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-lg text-xs font-semibold text-gray-900 transition-all cursor-pointer"
                   >
                     <AlarmClock className="h-4 w-4 shrink-0" aria-hidden="true" />
-                    <span>Pengingat tugas</span>
+                    <span>Pengingat Tugas</span>
                   </button>
                 </div>
               </>
@@ -201,7 +201,7 @@ export default function NotificationPopover({
                 </button>
                 <h3 className="flex items-center gap-1.5 text-xs font-bold text-gray-950">
                   <AlarmClock className="h-4 w-4 shrink-0" aria-hidden="true" />
-                  Pengingat tugas
+                  Pengingat Tugas
                 </h3>
                 <div className="w-14" aria-hidden="true" />
               </>
@@ -324,7 +324,7 @@ export default function NotificationPopover({
                     onClick={handleNavigateToP14}
                     className="w-full py-2 px-3 bg-gray-100 hover:bg-gray-200 text-gray-900 text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 transition-all cursor-pointer"
                   >
-                    <span>Buka Pengaturan Lengkap</span>
+                    <span>Buka halaman Pengingat Tugas</span>
                     <ExternalLink className="h-3.5 w-3.5 text-gray-600" />
                   </button>
                 </div>

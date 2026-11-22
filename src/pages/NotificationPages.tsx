@@ -6,12 +6,11 @@
 import React, { useState } from 'react';
 import { 
   Bell, 
-  Settings, 
+  AlarmClock,
   Trash2, 
   CheckCheck,
   CheckCircle,
   ArrowLeft,
-  Sliders,
   AtSign,
   Info
 } from 'lucide-react';
@@ -160,10 +159,10 @@ export default function NotificationPages({
               <button
                 id="btn-nav-to-p14"
                 onClick={() => setCurrentPage('P14')}
-                className="px-3.5 py-2 bg-gray-900 hover:bg-black text-white rounded-full text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
-                title="Buka Pengaturan Notifikasi"
+                className="inline-flex items-center gap-1.5 whitespace-nowrap px-2.5 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-lg text-xs font-semibold text-gray-900 transition-all cursor-pointer"
               >
-                <Settings className="h-3.5 w-3.5" /> Pengaturan
+                <AlarmClock className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <span>Pengingat Tugas</span>
               </button>
             )}
           </div>
@@ -303,15 +302,12 @@ export default function NotificationPages({
 
           <div className="flex items-center gap-3">
             <div className="p-2.5 bg-gray-100 text-gray-900 rounded-xl">
-              <Sliders className="h-6 w-6" />
+              <AlarmClock className="h-6 w-6" aria-hidden="true" />
             </div>
             <div>
               <h1 className="text-xl font-bold text-gray-950 tracking-tight">
-                Konfigurasi Pengingat & Notifikasi
+                Pengingat Tugas
               </h1>
-              <p className="text-xs text-gray-500 mt-0.5">
-                Kalibrasi waktu peringatan otomatis, ambang batas jatuh tempo, dan integrasi saluran keluar tim.
-              </p>
             </div>
           </div>
         </div>
@@ -321,7 +317,7 @@ export default function NotificationPages({
           <div className="flex items-center justify-between px-4 py-3 bg-purple-50/60 rounded-xl border border-purple-100 text-xs text-purple-900">
             <div className="flex items-center gap-2">
               <img src={currentUser.avatar} alt={currentUser.name} className="w-5 h-5 rounded-full object-cover" />
-              <span>Pengaturan notifikasi ini bersifat <strong>personal</strong> untuk akun <strong>{currentUser.name}</strong> ({currentUser.role}).</span>
+              <span>Pengingat ini berlaku untuk akun <strong>{currentUser.name}</strong>.</span>
             </div>
           </div>
         )}
