@@ -703,7 +703,7 @@ export default function TaskDetailPage({
             {/* Title Block */}
             <div className="space-y-1.5">
               <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">
-                NAMA TUGAS
+                NAMA TUGAS <span className="text-red-500">*</span>
               </label>
               {isEditing ? (
                 <input
@@ -723,7 +723,7 @@ export default function TaskDetailPage({
             {/* Task Description / Specification */}
             <div className="space-y-2 pt-2 border-t border-gray-100">
               <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
-                <FileText className="h-3.5 w-3.5 text-gray-400" /> SPESIFIKASI TUGAS & PANDUAN
+                <FileText className="h-3.5 w-3.5 text-gray-400" /> Deskripsi Tugas
               </label>
               {isEditing ? (
                 <textarea
@@ -1523,7 +1523,7 @@ export default function TaskDetailPage({
             {/* 3. PENUGASAN ANGGOTA (2-COLUMN COMPACT GRID & RBAC STAFF RESTRICTION) */}
             <div className="space-y-1.5">
               <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider flex items-center justify-between">
-                <span>PENUGASAN ANGGOTA</span>
+                <span>PENUGASAN ANGGOTA <span className="text-red-500">*</span></span>
                 <span className="text-[9px] font-mono font-normal text-gray-400">({selectedAssigneeIds.length} Anggota)</span>
               </label>
 
