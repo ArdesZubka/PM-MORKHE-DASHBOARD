@@ -628,10 +628,10 @@ export default function TaskDetailPage({
         <div className="flex items-center gap-2 text-xs font-semibold text-gray-500 bg-white border border-gray-200 px-4 py-2.5 rounded-xl shadow-2xs">
           <button
             onClick={() => handleNavigateToKanban('all')}
-            className="hover:text-morkhe-purple transition-colors flex items-center gap-1 cursor-pointer font-bold"
+            className="flex shrink-0 items-center gap-1 cursor-pointer font-bold text-morkhe-purple hover:text-indigo-800 focus-visible:ring-2 focus-visible:ring-morkhe-purple rounded-sm transition-colors"
           >
-            <ArrowLeft className="h-3.5 w-3.5 text-gray-400" />
-            <span>Tugas</span>
+            <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
+            <span className="underline underline-offset-2">Ruang Kerja</span>
           </button>
           <ChevronRight className="h-3.5 w-3.5 text-gray-300" />
           
