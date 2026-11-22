@@ -220,7 +220,7 @@ export default function CreateProjectPage({
         {/* Row 1: Nama Proyek & Organisasi Klien Grid (2 Columns) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-gray-700 mb-1">Nama Proyek *</label>
+            <label className="block text-xs font-bold text-gray-700 mb-1">Nama Proyek <span className="text-red-500">*</span></label>
             <input
               type="text"
               value={name}
@@ -232,7 +232,7 @@ export default function CreateProjectPage({
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 mb-1">Organisasi Klien *</label>
+            <label className="block text-xs font-bold text-gray-700 mb-1">Organisasi Klien <span className="text-red-500">*</span></label>
             <input
               type="text"
               value={client}

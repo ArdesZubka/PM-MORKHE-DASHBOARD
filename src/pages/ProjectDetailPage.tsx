@@ -1086,7 +1086,7 @@ export default function ProjectDetailPage({
             {/* Name & Client Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Nama Proyek *</label>
+                <label className="block text-xs font-bold text-gray-700 mb-1">Nama Proyek <span className="text-red-500">*</span></label>
                 <input
                   type="text"
                   value={name}
@@ -1097,7 +1097,7 @@ export default function ProjectDetailPage({
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Organisasi Klien *</label>
+                <label className="block text-xs font-bold text-gray-700 mb-1">Organisasi Klien <span className="text-red-500">*</span></label>
                 <input
                   type="text"
                   value={client}
