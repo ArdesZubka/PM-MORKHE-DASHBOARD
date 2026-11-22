@@ -228,7 +228,7 @@ export default function NotificationItem({
           {linkedTask ? (
             <button
               onClick={handleTaskClick}
-              className={`inline-flex items-center gap-1 font-bold text-morkhe-black hover:text-morkhe-purple hover:underline cursor-pointer transition-colors ${
+              className={`inline-flex items-center gap-1 font-bold text-morkhe-purple hover:text-morkhe-purple-dark hover:underline cursor-pointer transition-colors ${
                 compact ? 'text-[10px]' : 'text-xs'
               }`}
             >
