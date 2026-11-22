@@ -1860,7 +1860,7 @@ export default function TaskDetailPage({
                   className={`px-5 py-2 text-xs font-bold rounded-full transition-all flex items-center gap-1.5 shadow-sm ${
                     !title.trim() || !projectId || selectedAssigneeIds.length === 0
                       ? 'bg-gray-200 text-gray-400 cursor-not-allowed border border-gray-200'
-                      : 'bg-morkhe-black hover:opacity-90 text-white cursor-pointer'
+                      : 'bg-morkhe-purple hover:opacity-90 text-white cursor-pointer'
                   }`}
                 >
                   <Save className="h-4 w-4" />
@@ -1899,7 +1899,7 @@ export default function TaskDetailPage({
                   <button
                     type="button"
                     onClick={() => setIsEditing(true)}
-                    className="px-5 py-2 bg-morkhe-purple hover:opacity-90 text-white text-xs font-bold rounded-full transition-all cursor-pointer shadow-sm flex items-center gap-1.5"
+                    className="px-5 py-2 border border-morkhe-purple bg-white hover:bg-purple-50 text-morkhe-purple text-xs font-bold rounded-full transition-all cursor-pointer flex items-center gap-1.5"
                   >
                     <Edit3 className="h-3.5 w-3.5" />
                     <span>Edit Detail Tugas</span>
