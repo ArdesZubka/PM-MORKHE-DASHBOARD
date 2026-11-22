@@ -550,10 +550,10 @@ export default function ProjectDetailPage({
             {/* Scope Description */}
             <div className="space-y-2">
               <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider flex items-center gap-1.5">
-                <AlignLeft className="h-3.5 w-3.5 text-gray-400" /> Deskripsi Ruang Lingkup
+                <AlignLeft className="h-3.5 w-3.5 text-gray-400" /> Deskripsi Proyek
               </h3>
               <p className="text-xs md:text-sm text-gray-700 leading-relaxed bg-white p-4 rounded-xl border border-gray-200">
-                {project.description || 'Tidak ada deskripsi ruang lingkup.'}
+                {project.description || 'Tidak ada deskripsi proyek.'}
               </p>
             </div>
 
@@ -1170,7 +1170,7 @@ export default function ProjectDetailPage({
 
             {/* Description */}
             <div>
-              <label className="block text-xs font-bold text-gray-700 mb-1">Deskripsi Ruang Lingkup</label>
+              <label className="block text-xs font-bold text-gray-700 mb-1">Deskripsi Proyek</label>
               <textarea
                 rows={4}
                 value={description}

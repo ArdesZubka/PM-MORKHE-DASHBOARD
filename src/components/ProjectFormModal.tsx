@@ -204,7 +204,7 @@ export default function ProjectFormModal({
             </div>
 
             <div>
-              <label className="text-[10px] uppercase font-bold tracking-wider text-gray-400 block mb-1">Deskripsi Ruang Lingkup & Hasil Desain</label>
+              <label className="text-[10px] uppercase font-bold tracking-wider text-gray-400 block mb-1">Deskripsi Proyek</label>
               <textarea
                 placeholder="Masukkan brief lengkap, spesifikasi file, kebutuhan tipografi, dan catatan ekspektasi akhir..."
                 value={description}

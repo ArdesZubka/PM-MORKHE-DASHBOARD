@@ -281,9 +281,9 @@ export default function CreateProjectPage({
           </div>
         </div>
 
-        {/* Row 3: Deskripsi Ruang Lingkup & Hasil Desain */}
+        {/* Row 3: Deskripsi Proyek */}
         <div>
-          <label className="block text-xs font-bold text-gray-700 mb-1">Deskripsi Ruang Lingkup & Hasil Desain</label>
+          <label className="block text-xs font-bold text-gray-700 mb-1">Deskripsi Proyek</label>
           <textarea
             rows={4}
             value={description}
