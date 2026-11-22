@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { Briefcase, Plus, Calendar, ShieldAlert, FolderOpen, ChevronRight, Lock, Edit2, Trash2, MessageSquare, Paperclip } from 'lucide-react';
+import { Plus, Calendar, ShieldAlert, FolderOpen, ChevronRight, Lock, Edit2, Trash2, MessageSquare, Paperclip } from 'lucide-react';
 import { User, Project, Task, Comment } from '../types';
 import { DUMMY_COMMENTS } from '../data/dummy';
 import ConfirmDeleteModal from '../components/ConfirmDeleteModal';
@@ -235,7 +235,7 @@ export default function ProjectListPage({
                       }}
                       className="px-2.5 py-1.5 bg-[#4949E9] hover:bg-[#3b3be0] text-white rounded-full text-[11px] font-bold flex items-center gap-1 transition-all cursor-pointer shadow-sm active:scale-[0.98] whitespace-nowrap shrink-0"
                     >
-                      <Briefcase className="h-3.5 w-3.5 shrink-0" />
+                      <FolderOpen className="h-3.5 w-3.5 shrink-0" />
                       <span className="whitespace-nowrap">Lihat Detail Proyek</span>
                     </button>
                   </div>
