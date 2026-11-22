@@ -232,7 +232,7 @@ export default function NotificationItem({
                 compact ? 'text-[10px]' : 'text-xs'
               }`}
             >
-              <span>Selesaikan Konteks Papan Tugas</span>
+              <span>Lihat tugas</span>
               <ArrowRight className="h-3 w-3" />
             </button>
           ) : (

@@ -1103,7 +1103,7 @@ export default function App() {
                             className="w-full flex items-center gap-2 px-2.5 py-1.5 text-xs text-gray-300 hover:text-morkhe-white hover:bg-gray-800 rounded-lg transition-all cursor-pointer font-medium text-left"
                           >
                             <UserIcon className="h-4 w-4 text-gray-400" />
-                            <span>Pengaturan Akun</span>
+                            <span>Pengaturan akun</span>
                           </button>
                           <button
                             id="btn-profile-notif-settings"
@@ -1114,7 +1114,7 @@ export default function App() {
                             className="w-full flex items-center gap-2 px-2.5 py-1.5 text-xs text-gray-300 hover:text-morkhe-white hover:bg-gray-800 rounded-lg transition-all cursor-pointer font-medium text-left"
                           >
                             <Bell className="h-4 w-4 text-gray-400" />
-                            <span>Pengaturan Notifikasi</span>
+                            <span>Pengaturan notifikasi</span>
                           </button>
                         </div>
 

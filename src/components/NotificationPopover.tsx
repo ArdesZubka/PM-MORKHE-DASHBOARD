@@ -144,7 +144,7 @@ export default function NotificationPopover({
         <div className="absolute right-0 mt-2 w-[390px] sm:w-[420px] bg-white border border-gray-200 rounded-2xl shadow-2xl z-50 overflow-hidden flex flex-col max-h-[560px]">
           
           {/* Header */}
-          <div className="p-3.5 px-4 border-b border-gray-100 flex items-center justify-between bg-white shrink-0">
+          <div className="p-3.5 px-4 border-b border-gray-100 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 bg-white shrink-0">
             {view === 'list' ? (
               <>
                 <div className="flex items-center gap-2">
@@ -181,12 +181,13 @@ export default function NotificationPopover({
                     </button>
                   )}
                   <button
+                    type="button"
                     id="btn-notif-settings"
                     onClick={() => setView('settings')}
-                    className="p-1.5 hover:bg-gray-100 rounded-lg text-gray-500 hover:text-gray-900 transition-all cursor-pointer"
-                    title="Pengaturan Notifikasi"
+                    className="inline-flex items-center gap-1.5 whitespace-nowrap px-2.5 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-lg text-xs font-semibold text-gray-900 transition-all cursor-pointer"
                   >
-                    <AlarmClock className="h-4 w-4" />
+                    <AlarmClock className="h-4 w-4 shrink-0" aria-hidden="true" />
+                    <span>Pengingat tugas</span>
                   </button>
                 </div>
               </>
@@ -198,8 +199,11 @@ export default function NotificationPopover({
                 >
                   <ArrowLeft className="h-4 w-4" /> Kembali
                 </button>
-                <h3 className="text-xs font-bold text-gray-950 uppercase tracking-wider">Pengaturan Cepat</h3>
-                <div className="w-6" />
+                <h3 className="flex items-center gap-1.5 text-xs font-bold text-gray-950">
+                  <AlarmClock className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  Pengingat tugas
+                </h3>
+                <div className="w-14" aria-hidden="true" />
               </>
             )}
           </div>
