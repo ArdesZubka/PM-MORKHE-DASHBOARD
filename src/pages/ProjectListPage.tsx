@@ -224,21 +224,19 @@ export default function ProjectListPage({
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        // Navigate to Kanban board with project_id filter
-                        const url = new URL(window.location.href);
-                        url.searchParams.set('project_id', p.id);
-                        window.history.pushState({}, '', url);
-                        
-                        if (currentUser.role === 'PM') {
-                          setCurrentPage('P07');
+                        if (onOpenProjectDetail) {
+                          onOpenProjectDetail(p);
                         } else {
-                          setCurrentPage('P08');
+                          const url = new URL(window.location.href);
+                          url.searchParams.set('project_id', p.id);
+                          window.history.pushState({}, '', url);
+                          setCurrentPage('P19');
                         }
                       }}
                       className="px-2.5 py-1.5 bg-[#4949E9] hover:bg-[#3b3be0] text-white rounded-full text-[11px] font-bold flex items-center gap-1 transition-all cursor-pointer shadow-sm active:scale-[0.98] whitespace-nowrap shrink-0"
                     >
                       <Briefcase className="h-3.5 w-3.5 shrink-0" />
-                      <span className="whitespace-nowrap">Buka Ruang Kerja</span>
+                      <span className="whitespace-nowrap">Lihat detail proyek</span>
                     </button>
                   </div>
                 </div>
